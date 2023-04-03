@@ -5,6 +5,17 @@ udp port forwarding command
 ## What is this?
 This command can do udp port forwarding.
 
+``` mermaid
+sequenceDiagram
+    participant src-host
+    participant udpf-host
+    participant dst-host
+    src-host->>udpf-host: [client port]send data A[listen port]
+    udpf-host->>dst-host: [some port]send data A[forwarding port]
+    dst-host->>udpf-host: [some port]send data B[forwarding port]
+    udpf-host->>src-host: [client port]send data B[listen port]
+```
+
 ## how to use
 ``` bash
 $ cargo run
